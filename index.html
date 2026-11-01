@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>PRIME ATHLETE – Dashboard</title>
+  <style>
+    :root {
+      --bg: #090909;
+      --panel: #171717;
+      --gold: #d6b45b;
+      --red: #c83d35;
+      --text: #f5f3ed;
+      --muted: #aaa;
+      --line: #333;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: var(--gold);
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      flex-wrap: wrap;
+      background: #101010;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    button {
+      padding: 11px 15px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
+    button.active { color: var(--gold); border-color: var(--gold); }
+    button.primary {
+      background: var(--gold);
+      color: #111;
+      font-weight: bold;
+      border: none;
+    }
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 18px;
+    }
+    .page { display: none; }
+    .page.active { display: block; }
+    h1 { font-size: 28px; }
+    h2 { color: var(--gold); font-size: 19px; }
+    p { line-height: 1.5; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 19px;
+      margin: 12px 0;
+    }
+    .metric {
+      font-size: 27px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+    .muted { color: var(--muted); font-size: 13px; }
+    .notice {
+      background: #251615;
+      border-left: 3px solid var(--red);
+      padding: 13px;
+      margin: 18px 0;
+      border-radius: 5px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #0c0c0c;
+      color: white;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    label { color: #ccc; font-size: 13px; }
+    .tag {
+      display: inline-block;
+      color: var(--gold);
+      border: 1px solid #66552d;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">PRIME ATHLETE</div>
+    <div class="muted">PRIVATE CONTENT DASHBOARD</div>
+  </div>
+  <span class="tag">SWITZERLAND</span>
+</header>
+
+<nav>
+  <button class="active" data-page="dashboard">Übersicht</button>
+  <button data-page="products">Produkte</button>
+  <button data-page="instagram">Instagram</button>
+  <button data-page="tiktok">TikTok</button>
+  <button data-page="planner">Wochenplan</button>
+  <button data-page="settings">Einstellungen</button>
+</nav>
+
+<main>
+
+<section id="dashboard" class="page active">
+  <h1>Dashboard</h1>
+  <p>Willkommen bei PRIME ATHLETE.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="muted">Shopify</div>
+      <div class="metric">Shop</div>
+      <p><a href="https://www.prime-athlete.ch" target="_blank" style="color:#d6b45b">Shop öffnen ↗</a></p>
+    </div>
+    <div class="card">
+      <div class="muted">Instagram</div>
+      <div class="metric">Beiträge</div>
+      <p class="muted">Content und Captions vorbereiten.</p>
+    </div>
+    <div class="card">
+      <div class="muted">TikTok</div>
+      <div class="metric">Videos</div>
+      <p class="muted">Videoideen und Entwürfe organisieren.</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    Prototyp: Die externen Konten sind noch nicht live verbunden.
+    Es findet keine automatische Veröffentlichung statt.
+  </div>
+</section>
+
+<section id="products" class="page">
+  <h1>Produkte</h1>
+  <div class="card">
+    <h2>BioTech USA 100% Pure Whey</h2>
+    <div class="metric">CHF 22.10</div>
+    <p class="muted">Beispielprodukt. Preis und Angaben vor Verwendung prüfen.</p>
+  </div>
+</section>
+
+<section id="instagram" class="page">
+  <h1>Instagram</h1>
+  <p>@prime.athlete.swiss</p>
+  <div class="card">
+    <label>Beitrags-Caption</label>
+    <textarea id="instagramText">Entdecke PRIME ATHLETE und unser Sortiment. Weitere Produktdetails findest du in unserem Shop.</textarea>
+    <div class="row">
+      <button class="primary" onclick="downloadText('instagramText','instagram-entwurf.txt')">Entwurf herunterladen</button>
+      <button onclick="copyText('instagramText')">Text kopieren</button>
+    </div>
+  </div>
+</section>
+
+<section id="tiktok" class="page">
+  <h1>TikTok</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>Produktvorstellung</h2>
+      <p>Produkt und überprüfte Produktinformationen vorstellen.</p>
+    </div>
+    <div class="card">
+      <h2>Shop-Einblick</h2>
+      <p>Ein kurzer Rundgang durch den PRIME ATHLETE Shop.</p>
+    </div>
+    <div class="card">
+      <h2>Marke vorstellen</h2>
+      <p>Die Marke und ihre Produktbereiche präsentieren.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <label>Videotitel</label>
+    <input id="ttTitle" value="Willkommen bei PRIME ATHLETE">
+
+    <label>Caption</label>
+    <textarea id="ttCaption">Entdecke PRIME ATHLETE und unser Sortiment. Produktdetails findest du in unserem Shop.</textarea>
+
+    <label>Hashtags</label>
+    <input id="ttTags" value="#PrimeAthlete #SwissShop #Sport">
+
+    <button class="primary" onclick="downloadTikTok()">TikTok-Entwurf herunterladen</button>
+  </div>
+</section>
+
+<section id="planner" class="page">
+  <h1>Wochenplan</h1>
+  <div class="card">
+    <p><label><input type="checkbox" style="width:auto"> Montag – Instagram-Beitrag vorbereiten</label></p>
+    <p><label><input type="checkbox" style="width:auto"> Dienstag – TikTok-Videoidee planen</label></p>
+    <p><label><input type="checkbox" style="width:auto"> Mittwoch – Produktinformationen prüfen</label></p>
+    <p><label><input type="checkbox" style="width:auto"> Donnerstag – Instagram-Story vorbereiten</label></p>
+    <p><label><input type="checkbox" style="width:auto"> Freitag – TikTok-Caption prüfen</label></p>
+  </div>
+</section>
+
+<section id="settings" class="page">
+  <h1>Einstellungen</h1>
+  <div class="card">
+    <h2>Shop</h2>
+    <p>www.prime-athlete.ch</p>
+    <h2>Instagram</h2>
+    <p>@prime.athlete.swiss</p>
+    <h2>App-Domain</h2>
+    <p>app.prime-athlete.ch</p>
+    <h2>Design</h2>
+    <p>Schwarz · Gold · Rot</p>
+  </div>
+  <div class="notice">
+    Für den produktiven Betrieb werden ein privater Login,
+    ein Backend und sichere API-Verbindungen benötigt.
+    Keine Zugangsdaten oder API-Schlüssel in dieser HTML-Datei speichern.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  PRIME ATHLETE · Private Content Workspace
+</footer>
+
+<script>
+document.querySelectorAll("nav button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    button.classList.add("active");
+    document.getElementById(button.dataset.page).classList.add("active");
+  });
+});
+
+function downloadText(id, filename) {
+  const text = document.getElementById(id).value;
+  const blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyText(id) {
+  navigator.clipboard.writeText(document.getElementById(id).value)
+    .then(() => alert("Text kopiert."));
+}
+
+function downloadTikTok() {
+  const content =
+    "Titel: " + document.getElementById("ttTitle").value +
+    "\n\nCaption: " + document.getElementById("ttCaption").value +
+    "\n\nHashtags: " + document.getElementById("ttTags").value;
+
+  const blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "tiktok-entwurf.txt";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
